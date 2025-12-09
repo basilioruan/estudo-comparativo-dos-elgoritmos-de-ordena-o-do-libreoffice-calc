@@ -162,8 +162,8 @@ def gerar_analise_complexidade(df, salvar=True):
         if len(tamanhos) > 2:
             x_fit = np.linspace(tamanhos.min(), tamanhos.max(), 100)
             
-            if 'Insertion Sort' in algoritmo:
-                # O(n²) para Insertion Sort
+            if algoritmo in ('Insertion Sort', 'Shell Sort'):
+                # O(n²) para Insertion Sort e Shell sor
                 n2_fit = (x_fit ** 2) * (tempos.iloc[0] / (tamanhos.iloc[0] ** 2))
                 plt.plot(x_fit, n2_fit, '--', alpha=0.8, color='red', linewidth=2, label='O(n²)')
                 plt.title(f'{algoritmo}\n(Complexidade Quadrática)')
